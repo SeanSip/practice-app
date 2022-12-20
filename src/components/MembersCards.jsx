@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 const DUMMY_MEMBERS = [
   {
-    
     img: "https://loremflickr.com/200/200",
     id: "a1",
     name: "John",
@@ -56,21 +55,17 @@ const MemberCards = ({ members }) => {
   );
 };
 
-
-
 const ActivityFilter = () => {
-  const [activity, setActivity] = useState('');
   const [filteredMembers, setFilteredMembers] = useState(DUMMY_MEMBERS);
 
-const handleChange = event => {
-  const selectedActivity = event.target.value;
-  setActivity(selectedActivity);
-  setFilteredMembers(
-    selectedActivity === ''
-      ? DUMMY_MEMBERS
-      : DUMMY_MEMBERS.filter(member => member.activities.includes(selectedActivity))
-  );
-};
+  const handleChange = event => {
+    const selectedActivity = event.target.value;
+    setFilteredMembers(
+      selectedActivity === ''
+        ? DUMMY_MEMBERS
+        : DUMMY_MEMBERS.filter(member => member.activities.includes(selectedActivity))
+    );
+  };
 
   return (
     <div>
